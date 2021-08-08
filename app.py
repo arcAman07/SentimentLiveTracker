@@ -1,5 +1,7 @@
 import uvicorn
 from fastapi import FastAPI
+from config import settings
+from tweet_generator import tweet_generator
 
 app = FastAPI()
 
@@ -10,7 +12,14 @@ def index():
 
 @app.get('/{name}')
 def get_name(name: str):
-    return {'message': f'Hello, {name}'}
+    TPCK = settings.TPCK
+    TSCK = settings.TSCK
+    TPAK = settings.TPAK
+    TSAK = settings.TSAK
+    twitter_bot = tweet_generator.PersonTweeter(name,TPCK,TSCK,TPAK,TSAK)
+    random_tweet = twitter_bot.generate_random_tweet()
+    random_tweet = random_tweet
+    return {'Tweet': random_tweet}
 
 
 if __name__ == '__main__':

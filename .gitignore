@@ -1,2 +1,3 @@
 __pycache__/
 tweet_fetcher.py
+config.py
