@@ -1,5 +1,22 @@
 # SentimentLiveTracker
 
+Note : A file named **config.py** must be created with code :
+``` 
+from pydantic import BaseSettings
+
+
+class Settings(BaseSettings):
+    TPCK: str = "{Your key}"
+    TSCK: str = "{Your key}"
+    TPAK: str = "{Your key}"
+    TSAK: str = "{Your key}"
+
+
+settings = Settings()
+ ```
+
+
+
 Dataset URLs:
 
 
